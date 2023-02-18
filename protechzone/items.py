@@ -50,9 +50,10 @@ class ProtechzoneItem(scrapy.Item):
         output_processor=TakeFirst()
     )
     hq_address = scrapy.Field(
-        output_processor=TakeFirst()
+        output_processor=Join('')
     )
     other_office =scrapy.Field(
+        input_processor=MapCompose(check_availabe),
         output_processor=Join('')
     )
     linkedin_company = scrapy.Field()
